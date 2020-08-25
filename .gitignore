@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 Teste/
 EX01_GPIO/build
 EX01_GPIO/sdkconfig
 
+=======
+>>>>>>> b7d754eb5809565d0d3e5a85848e037509824f85
 # Prerequisites
 *.d
 

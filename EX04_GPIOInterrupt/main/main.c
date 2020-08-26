@@ -106,9 +106,7 @@ void app_main( void )
 	//Habilita a interrupção externa da(s) GPIO's. 
 	//Ao utilizar a função gpio_install_isr_service todas as interrupções de GPIO do descritor vão chamar a mesma 
 	//interrupção. A função de callback que será chamada para cada interrupção é definida em gpio_isr_handler_add. 
-	//O flag ESP_INTR_FLAG_DEFAULT tem a ver com a alocação do vetor de interrupção, que neste caso o valor Zero (0) 
-	//informa para alocar no setor de interrupção não compartilhado de nível 1, 2 ou 3. 
-    gpio_install_isr_service(0);
+	gpio_install_isr_service(0);
 
 	//Registra a interrupção externa do BUTTON
     gpio_isr_handler_add( BUTTON, gpio_isr_handler, (void*) BUTTON ); 	

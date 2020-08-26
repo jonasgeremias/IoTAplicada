@@ -2,4 +2,6 @@ EX01_GPIO/build
 EX01_GPIO/sdkconfig
 EX02_GPIOTask/build
 EX02_GPIOTask/sdkconfig
+EX03_GPIODescritor/build
+EX03_GPIODescritor/sdkconfig
 

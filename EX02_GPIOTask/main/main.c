@@ -74,15 +74,12 @@ void task_GPIO_Control( void *pvParameter )
 	*/
 	gpio_pad_select_gpio( BUTTON ); 
 	gpio_set_direction( BUTTON, GPIO_MODE_INPUT );
-	gpio_set_pull_mode( BUTTON, GPIO_PULLUP_ONLY );
-    bool estado = 0;   
+	gpio_set_pull_mode( BUTTON, GPIO_PULLUP_ONLY );       
 
     while ( TRUE ) 
     {
 		if (!gpio_get_level(BUTTON))
-		{
-			if( DEBUG )
-				ESP_LOGI(TAG, "Botão Pressionado");
+		{			
 			gpio_set_level(LED_G,1);
 			gpio_set_level(LED_B,0);			
 		}
@@ -90,7 +87,8 @@ void task_GPIO_Control( void *pvParameter )
 		{
 			gpio_set_level(LED_G,0);
 			gpio_set_level(LED_B,1);			
-		}			
+		}
+		vTaskDelay( 10 / portTICK_RATE_MS ); //Delay de 10ms liberando scheduler;
 	}
 }	
 

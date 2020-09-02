@@ -10,4 +10,8 @@ EX03_GPIODescritor/sdkconfig.old
 EX04_GPIOInterrupt/build
 EX04_GPIOInterrupt/sdkconfig
 EX04_GPIOInterrupt/sdkconfig.old
+EX05_WiFiIPDinamico/build
+EX05_WiFiIPDinamico/sdkconfig
+EX05_WiFiIPDinamico/sdkconfig.old
+
 

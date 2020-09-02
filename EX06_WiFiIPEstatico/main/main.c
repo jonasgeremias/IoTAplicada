@@ -1,7 +1,7 @@
 /*
 	Autor: Prof. Vagner Rodrigues
 	Objetivo: Configurando rede WiFi com o ESP32 em modo cliente (Station)
-			  Configuração com IP dinâmico
+			  Configuração com IP estático
 	Disciplina: IoT Aplicada
 	Curso: Engenharia da Computação
 */
@@ -121,13 +121,24 @@ void wifi_init_sta(void)
 
     ESP_ERROR_CHECK(esp_event_loop_create_default());
     esp_netif_create_default_wifi_sta();
-
-    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+	wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+	
+	ESP_ERROR_CHECK(esp_wifi_init(&cfg));
 
     ESP_ERROR_CHECK(esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &event_handler, NULL));
     ESP_ERROR_CHECK(esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &event_handler, NULL));
-
+	
+	tcpip_adapter_dhcpc_stop(TCPIP_ADAPTER_IF_STA);
+	tcpip_adapter_ip_info_t ipInfo;
+	
+	/**
+	 * Configura IP, Gateway e Máscara da Rede; 
+	 */
+	IP4_ADDR(&ipInfo.ip, 10,0,0,145);
+	IP4_ADDR(&ipInfo.gw, 10,0,0,1);
+	IP4_ADDR(&ipInfo.netmask, 255,255,255,0);
+	tcpip_adapter_set_ip_info(TCPIP_ADAPTER_IF_STA, &ipInfo);
+    
     wifi_config_t wifi_config = {
         .sta = {
             .ssid = EXAMPLE_ESP_WIFI_SSID,

@@ -212,6 +212,7 @@ void app_main(void)
 
     ESP_LOGI(TAG, "ESP_WIFI_MODE_STA");
 	//Configura e inicializa o WiFi.
+	
     wifi_init_sta();
 	// Cria a task responsável por imprimir o IP recebido do roteador.
     if(xTaskCreate( task_ip, "task_ip", 2048, NULL, 5, NULL )!= pdTRUE )

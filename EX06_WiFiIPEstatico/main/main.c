@@ -131,9 +131,7 @@ void wifi_init_sta(void)
 	tcpip_adapter_dhcpc_stop(TCPIP_ADAPTER_IF_STA);
 	tcpip_adapter_ip_info_t ipInfo;
 	
-	/**
-	 * Configura IP, Gateway e Máscara da Rede; 
-	 */
+	/* Configura IP, Gateway e Máscara da Rede */
 	IP4_ADDR(&ipInfo.ip, 10,0,0,145);
 	IP4_ADDR(&ipInfo.gw, 10,0,0,1);
 	IP4_ADDR(&ipInfo.netmask, 255,255,255,0);

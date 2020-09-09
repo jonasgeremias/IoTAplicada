@@ -16,6 +16,10 @@ EX05_WiFiIPDinamico/sdkconfig.old
 EX06_WiFiIPEstatico/build
 EX06_WiFiIPEstatico/sdkconfig
 EX06_WiFiIPEstatico/sdkconfig.old
+EX07_Exercicio01/build
+EX07_Exercicio01/sdkconfig
+EX07_Exercicio01/sdkconfig.old
+
 
 
 
